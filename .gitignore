@@ -1,7 +1,5 @@
-node_modules
-/node_modules
+node_modules/
+build/
+.firebaserc
 firebase.js
-.firebase.js
-.firebase
-/build
-build
+firebase.json
