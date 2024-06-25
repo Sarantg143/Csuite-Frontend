@@ -248,8 +248,19 @@
 .inputgroup input:not(:placeholder-shown) + label,
 .messagegroup textarea:focus + label,
 .messagegroup textarea:not(:placeholder-shown) + label {
-  top: -7px;
-  left: 2px;
+  top: 0px;
+  left: 6px;
   font-size: 11px !important;
   color: #795ad1;
+  padding: 2px 4px;
+  background-color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: black;
+  transition: background-color 5000s ease-in-out 0s;
 }
