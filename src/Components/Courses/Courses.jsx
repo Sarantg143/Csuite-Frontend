@@ -16,6 +16,7 @@ import imagenotxt3 from "../Assets/imagenotxt3.png";
 import imagenotxt4 from "../Assets/imagenotxt4.png";
 import imagelarger from "../Assets/larger1.png";
 import imagelarger2 from "../Assets/larger2.png";
+import { useNavigate } from "react-router-dom";
 
 const courses = [
   {
@@ -292,6 +293,8 @@ const coursesDataLonger = [
 ];
 
 const Courses = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="main-content">
@@ -362,7 +365,12 @@ const Courses = () => {
                     ))}
                     {course.lessons.length > 5 && <li>...and more</li>}
                   </ul>
-                  <button className="lessonDetailBtn3">View Details</button>
+                  <button
+                    onClick={() => navigate("/courseContent")}
+                    className="lessonDetailBtn3"
+                  >
+                    View Course
+                  </button>
                 </div>
               </div>
             ))}

@@ -1,0 +1,55 @@
+.courseContentContainer {
+  background-color: red;
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.firstRow {
+  background-color: blueviolet;
+}
+
+.firstRowHeading {
+  display: flex;
+  justify-content: space-between;
+  background-color: yellow;
+}
+
+.firstRowHeading h2 {
+  width: max-content;
+}
+
+.backBtn,
+.nextBtn {
+  width: max-content;
+  background-color: rgb(33, 99, 92);
+}
+
+.profileBox {
+  background-color: springgreen;
+}
+
+.courseContentContainer .secondRow {
+  background-color: aqua;
+  width: 100%;
+}
+
+.videoBox {
+  background-color: rgb(159, 101, 25);
+}
+
+.videoTitle {
+  background-color: yellow;
+}
+
+.tabBox {
+  background-color: orange;
+}
+
+.accordianBox {
+  background-color: yellowgreen;
+}
