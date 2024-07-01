@@ -26,6 +26,7 @@ import Assessmentsstart from "./Components/Assessments/Assessmentsstart/Assessme
 import Dashboard from "./Dashboard/Dashboard";
 import Courses from "./Components/Courses/Courses";
 import CourseContent from "./Components/CourseContent/CourseContent";
+import CourseDetails from "./Components/CourseDetails/CourseDetails";
 
 function App() {
   return (
@@ -59,6 +60,11 @@ function App() {
             path="/courseContent"
             index
             element={<CourseContent />}
+          ></Route>
+          <Route
+            path="/courseDetails"
+            index
+            element={<CourseDetails />}
           ></Route>
         </Routes>
       </Router>

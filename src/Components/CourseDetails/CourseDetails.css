@@ -1,0 +1,229 @@
+:root {
+  --primary-color: #8949ff;
+  --primary-light: #a86aff;
+  --primary-dark: #5f32b8;
+  --primary-bg: #f3e6ff;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+.courseDetailsBox {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--primary-bg);
+  box-shadow: 0px 4px 6px var(--shadow-color);
+}
+
+.CDHeader {
+  width: 100%;
+  height: 45vh;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.CDBody {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.CDLHS,
+.CDMHS,
+.CDRHS {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.CDLHS {
+  flex: 1;
+}
+
+.CDMHS {
+  background-color: aquamarine;
+  flex: 3;
+}
+
+.CDRHS {
+  flex: 1;
+}
+
+.CDvideoBox iframe {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0px 4px 6px var(--shadow-color);
+}
+
+.CDWhoIsThisFor,
+.CDWhatYouGet {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: aqua;
+}
+
+.CDWhoIsThisFor div {
+  /* padding: 15px; */
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px var(--shadow-light);
+  /*  */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  background-color: rgb(255, 0, 0);
+}
+
+.CDWhoIsThisFor div span {
+  border: 1px solid var(--primary-dark);
+  padding: 5px 8px;
+  font-size: 0.75em;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: rgb(0, 255, 38);
+}
+
+.CDWhatYouGet .CDWhatBoxContent {
+  display: flex;
+  padding: 8px 10px;
+  gap: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--primary-dark);
+  align-items: center;
+  border-radius: 5px;
+  justify-items: center;
+  background-color: sienna;
+}
+
+.CDWhatYouGet .CDWhatBoxContent:last-child {
+  margin-bottom: 0px;
+}
+
+.CDWhatYouGet div span {
+  background-color: rgb(0, 129, 168);
+}
+
+.CDWhatYouGet .CDWhatBoxContent div {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  background-color: rgb(255, 191, 0);
+}
+
+.CDWhatYouGet .CDWhatBoxContent div h6 {
+  background-color: rgb(60, 0, 255);
+}
+
+.CDWhatYouGet .CDWhatBoxContent div span {
+  background-color: rgb(255, 0, 0);
+  font-size: 0.75em;
+}
+
+/* .CDWhoIsThisFor h3, */
+
+.CDOverview,
+.CDSyllabus {
+  padding: 20px;
+  background-color: rgb(152, 48, 48);
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px var(--shadow-light);
+}
+
+.CDPriceBox,
+.CDCourseDetails {
+  padding: 20px;
+  background-color: rgb(0, 255, 153);
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px var(--shadow-light);
+}
+
+.CDPriceBox h3 {
+  background-color: red;
+  /* margin-bottom: 0; */
+}
+
+.CDCartBtn,
+.CDBuyBtn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.CDBuyBtn {
+  color: var(--primary-dark);
+  background-color: white;
+  border: 1px solid var(--primary-dark);
+}
+
+.CDCartBtn:hover,
+.CDBuyBtn:hover {
+  background-color: var(--primary-dark);
+}
+
+.CDBuyBtn:hover {
+  color: white;
+  background-color: var(--primary-dark);
+}
+
+/*  */
+.CDOverview button {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--primary-light);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.CDOverview button:hover {
+  background-color: var(--primary-color);
+}
+
+.CDCourseDetailRow {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.CDCourseDetailRow:last-child {
+  margin-bottom: 0px;
+}
+
+.CDCourseDetails .detailIcon {
+  margin-right: 7.5px;
+}
+
+.CDOffer {
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+  margin-bottom: 20px;
+}
+
+.CDStrike {
+  margin: auto 0;
+  background-color: yellowgreen;
+  text-decoration: line-through;
+}
+
+.CDOffer span {
+  color: white;
+  margin-left: 10px;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.7em;
+  background-color: black;
+}
