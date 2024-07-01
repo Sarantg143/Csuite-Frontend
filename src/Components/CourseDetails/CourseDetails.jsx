@@ -4,6 +4,7 @@ import { Tabs, Tab, Accordion } from "react-bootstrap";
 import tickIcon from "../Assets/tickIcon.svg";
 import lightning from "../Assets/lightning.svg";
 import settings from "../Assets/settings.svg";
+import { useNavigate } from "react-router-dom";
 
 const courseContentDetailsData = {
   title: "Strategic Leadership and Management",
@@ -182,6 +183,8 @@ By the end of this course, you will emerge not only with enhanced leadership cap
 };
 
 const CourseDetails = () => {
+  const navigate = useNavigate();
+
   const [activeTab, setActiveTab] = useState("description");
   const [activeLesson, setActiveLesson] = useState("");
 
@@ -350,7 +353,12 @@ const CourseDetails = () => {
               <span>50%</span>
             </div>
             <button className="CDCartBtn">Add to Cart</button>
-            <button className="CDBuyBtn">Buy Now</button>
+            <button
+              onClick={() => navigate("/courseContent")}
+              className="CDBuyBtn"
+            >
+              Buy Now
+            </button>
           </div>
           <div className="CDCourseDetails">
             <h4>Course Details</h4>

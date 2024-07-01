@@ -153,7 +153,7 @@ const Courses = () => {
                     {course.lessons.length > 5 && <li>...and more</li>}
                   </ul>
                   <button
-                    onClick={() => navigate("/courseContent")}
+                    onClick={() => navigate("/courseDetails")}
                     className="lessonDetailBtn3"
                   >
                     View Course
