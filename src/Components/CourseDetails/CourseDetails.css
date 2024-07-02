@@ -1,12 +1,3 @@
-:root {
-  --primary-color: #8949ff;
-  --primary-light: #a86aff;
-  --primary-dark: #5f32b8;
-  --primary-bg: #f3e6ff;
-  --shadow-color: rgba(0, 0, 0, 0.2);
-  --shadow-light: rgba(0, 0, 0, 0.1);
-}
-
 .courseDetailsBox {
   display: flex;
   width: 100%;
@@ -58,6 +49,7 @@
   border: 1px solid #a86aff84;
   background-color: white;
   border-radius: 10px;
+  margin: 0px 10px;
 }
 
 .CDRHS {
@@ -73,13 +65,15 @@
 
 .CDWhoIsThisFor,
 .CDWhatYouGet {
-  padding: 15px;
+  /* padding: 15px; */
   border-radius: 10px;
   /* background-color: white; */
   /* box-shadow: 0px 2px 4px var(--shadow-light); */
 }
 
-h5 {
+.CDWhoIsThisFor h5,
+.CDWhatYouGet h5,
+.CDtabBoxOverV h5 {
   color: var(--primary-dark);
   margin-bottom: 15px;
 }
@@ -379,4 +373,161 @@ h5 {
   font-weight: 400;
   text-decoration: none;
   color: var(--primary-dark);
+}
+
+/*  */
+/* Media query for devices with a max width of 1125px */
+@media (max-width: 1125px) {
+  .courseDetailsBox {
+    padding: 20px;
+  }
+
+  .CDHeader {
+    height: 40vh;
+  }
+
+  .CDLHS,
+  .CDMHS,
+  .CDRHS {
+    flex: none;
+    width: 100%;
+  }
+
+  .CDBody {
+    flex-direction: column;
+  }
+
+  .CDPriceBox,
+  .CDCourseDetails {
+    padding: 15px;
+  }
+
+  .CDHeaderIntroVideo iframe,
+  .CDvideoBox iframe {
+    height: auto;
+  }
+
+  /* .CDWhoIsThisFor,
+  .CDWhatYouGet {
+    padding: 10px;
+  } */
+
+  .CDtabBox .nav-tabs {
+    margin-bottom: 15px;
+  }
+
+  .CDtabBox .nav-link {
+    font-size: 0.9em;
+  }
+
+  .CDtabBox .nav-link.active::after {
+    bottom: -7px;
+  }
+
+  .CDlesson-title {
+    font-size: 1em;
+  }
+
+  .CDlesson-meta .CDlesson-duration,
+  .list-group-item .CDlesson-duration {
+    padding: 0 0 0 10px;
+    font-size: 0.8em;
+  }
+
+  .CDlesson-meta span {
+    font-size: 0.8em;
+  }
+
+  .list-group-item {
+    padding: 8px 10px;
+  }
+
+  .list-group-item a {
+    padding-left: 5px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 835px) {
+  .courseDetailsBox {
+    padding: 15px;
+  }
+
+  .CDHeader {
+    height: 30vh;
+  }
+
+  .CDHeaderIntroVideo iframe {
+    height: 30vh;
+  }
+
+  .CDBody {
+    flex-direction: column;
+  }
+
+  .CDLHS,
+  .CDMHS,
+  .CDRHS {
+    width: 100%;
+  }
+
+  .CDPriceBox,
+  .CDCourseDetails {
+    padding: 10px;
+  }
+
+  /* .CDWhoIsThisFor,
+  .CDWhatYouGet {
+    padding: 5px;
+  } */
+
+  .CDWhoIsThisFor h5,
+  .CDWhatYouGet h5,
+  .CDtabBoxOverV h5,
+  .CDtabBoxOverV div h5 {
+    font-size: 1em;
+  }
+
+  .CDLightningTxt {
+    font-size: 0.7em;
+  }
+
+  .CDWhatYouGet .CDWhatBoxContent {
+    padding: 5px 8px;
+  }
+
+  .CDtabBox .nav-tabs {
+    margin-bottom: 10px;
+  }
+
+  .CDtabBox .nav-link {
+    font-size: 0.8em;
+  }
+
+  .CDtabBox .nav-link.active::after {
+    bottom: -5px;
+  }
+
+  .CDlesson-title {
+    font-size: 0.9em;
+  }
+
+  .CDlesson-meta .CDlesson-duration,
+  .list-group-item .CDlesson-duration {
+    padding: 0 0 0 5px;
+    font-size: 0.7em;
+  }
+
+  .CDlesson-meta span {
+    font-size: 0.7em;
+  }
+
+  .list-group-item {
+    padding: 5px 8px;
+  }
+
+  .list-group-item a {
+    padding-left: 3px;
+    font-size: 0.8em;
+  }
 }

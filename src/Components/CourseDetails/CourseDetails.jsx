@@ -4,10 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Tabs, Tab, Accordion } from "react-bootstrap";
 import courseContentDetailsData from "../Assets/Data/CourseContentDetails.json";
 
-// import tickIcon from "../Assets/tickIcon.svg";
-// import lightning from "../Assets/lightning.svg";
-// import settings from "../Assets/settings.svg";
-
 const CourseDetails = () => {
   const navigate = useNavigate();
 
@@ -53,7 +49,7 @@ const CourseDetails = () => {
           </div>
         </div>
       </div>
-      <div className="row CDBody">
+      <div className="row CDBody g-0">
         <div className="CDLHS">
           <div className="CDvideoBox">
             <div className="embed-responsive embed-responsive-16by9">

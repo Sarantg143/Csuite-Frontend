@@ -1,15 +1,5 @@
 .main-content {
-  flex: 1;
-  padding: 20px;
-  margin-left: 250px;
-  display: flex;
-  flex-direction: column;
-  /* gap: 20px; */
-  border-radius: 50px;
-  background-color: #fff;
-  width: 80%;
-  /* background-color: blue; */
-  /* margin-top: 20px; */
+  padding: 0px 20px 20px 20px;
 }
 
 /* Design 3 */
@@ -27,6 +17,14 @@
   display: grid;
   gap: 40px;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.courseLessonBox3 h5 {
+  color: white;
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: max-content;
+  background-color: #8949ff;
 }
 
 .courseCard3 {
@@ -77,6 +75,7 @@
   left: 5%;
   z-index: 2;
   color: white;
+  font-size: medium;
   padding: 1% 3%;
   font-weight: 500;
   border-top-left-radius: 8px;
@@ -149,34 +148,89 @@
 }
 
 @media (max-width: 1125px) {
-  .courseContainer2 {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
+  .main-content {
+    padding: 0px 5px 5px 5px;
   }
-  .coursesContainer3 {
-    display: grid;
+
+  .cardContainer3 h2 {
+    padding: 5px;
+    font-size: x-large;
+    margin-bottom: 10px;
+  }
+
+  .courseLessonBox3 h5 {
+    font-size: medium;
+  }
+
+  .courseLessonBox3 ul {
+    padding: 0px 5px 0px 10px;
+    font-size: 0.75em;
+  }
+
+  .courseContainer3 {
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .main-content {
-    margin-left: 160px;
+  .courseImage3 {
+    height: 150px;
+  }
+
+  .courseImageTxt3 {
+    font-size: small;
+  }
+
+  .courseDetails3 p {
+    font-size: 0.8em;
+  }
+
+  .courseDetailBtn3,
+  .lessonDetailBtn3 {
+    padding: 9px 15px;
+    font-size: 0.75em;
   }
 }
 
 @media (max-width: 835px) {
-  .courseContainer2 {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .coursesContainer3 {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-  }
   .main-content {
-    margin-left: 160px;
+    padding: 0px 5px 5px 5px;
+  }
+
+  .cardContainer3 h2 {
+    padding: 5px;
+    font-size: x-large;
+    margin-bottom: 10px;
+  }
+
+  .courseLessonBox3 h5 {
+    font-size: medium;
+  }
+
+  .courseLessonBox3 ul {
+    padding: 0px 5px 0px 10px;
+    font-size: 0.75em;
+  }
+
+  .courseContainer3 {
+    gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .courseImage3 {
+    height: 150px;
+  }
+
+  .courseImageTxt3 {
+    font-size: small;
+  }
+
+  .courseDetails3 p {
+    font-size: 0.8em;
+  }
+
+  .courseDetailBtn3,
+  .lessonDetailBtn3 {
+    padding: 9px 15px;
+    font-size: 0.75em;
   }
 }

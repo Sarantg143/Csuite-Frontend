@@ -1,20 +1,20 @@
 import React from "react";
-import "./Courses.css";
+import "../../../Components/Courses/Courses.css";
 import { useNavigate } from "react-router-dom";
-import coursesData from "../Assets/Data/CourseList.json";
+import coursesData from "../../../Components/Assets/Data/CourseList.json";
 
 const resolveImagePath = (relativePath) => {
-  return require(`../Assets/Images/${relativePath}`);
+  return require(`../../../Components/Assets/Images/${relativePath}`);
 };
 
-const Courses = () => {
+const Enrolled = () => {
   const navigate = useNavigate();
 
   return (
     <>
       <div className="main-content">
         <div className="cardContainer3">
-          <h2>Courses</h2>
+          <h2>Enrolled Course</h2>
           <div className="courseContainer3">
             {coursesData.map((course) => (
               <div className="courseCard3" key={course.id}>
@@ -56,4 +56,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default Enrolled;

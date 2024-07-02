@@ -30,7 +30,7 @@ const Sidebar = () => {
           <FontAwesomeIcon icon={faUser} className="icon" />
           <span>My Profile</span>
         </Link>
-        <Link to="./" className="menu-item">
+        <Link to="./enrolled" className="menu-item">
           <FontAwesomeIcon icon={faHeart} className="icon" />
           <span>Enrolled</span>
         </Link>
@@ -51,7 +51,7 @@ const Sidebar = () => {
           <span>All Courses</span>
         </Link>
       </div>
-      <div className="menu bottom">
+      <div className=" bottom">
         <Link to="./" className="menu-item">
           <FontAwesomeIcon icon={faCog} className="icon" />
           <span>Settings</span>

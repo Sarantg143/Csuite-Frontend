@@ -5,7 +5,7 @@
   cursor: default;
   background-color: #795ad1;
   justify-content: space-evenly;
-  background-image: url("../Assets/contactUsSVG.svg");
+  background-image: url("../Assets/SVG/contactUsSVG.svg");
   background-size: auto;
   background-repeat: no-repeat;
   background-position-x: calc(100% + 380px);

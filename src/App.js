@@ -27,6 +27,8 @@ import Dashboard from "./Dashboard/Dashboard";
 import Courses from "./Components/Courses/Courses";
 import CourseContent from "./Components/CourseContent/CourseContent";
 import CourseDetails from "./Components/CourseDetails/CourseDetails";
+import Profile from "./Dashboard/Components/Profile/Profile";
+import Enrolled from "./Dashboard/Components/Enrolled/Enrolled";
 
 function App() {
   return (
@@ -55,6 +57,8 @@ function App() {
           <Route path="/finish-assessment" element={<Closelevel />} />
           <Route path="/home" element={<Dashboard />}>
             <Route path="courses" index element={<Courses />}></Route>
+            <Route path="profile" index element={<Profile />}></Route>
+            <Route path="enrolled" index element={<Enrolled />}></Route>
           </Route>
           <Route
             path="/courseContent"

@@ -1,6 +1,12 @@
 .Dashboard {
   display: flex;
-  flex-direction: column;
-  /* background-color: red; */
   color: #333;
+}
+
+.sidebarBox {
+  width: max-content;
+}
+
+.outletBox {
+  flex: 1;
 }
