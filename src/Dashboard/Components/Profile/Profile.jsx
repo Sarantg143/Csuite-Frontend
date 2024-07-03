@@ -140,7 +140,7 @@ const Profile = () => {
               disabled={!isEditing}
             />
           </div>
-          <br></br>
+          <div className="profileSeperator"></div>
           <h5>Contact Details</h5>
           <div className="profileDetails profileSPLBox">
             <img src={phoneSVG} alt="phoneNumberSVG" />
@@ -206,7 +206,7 @@ const Profile = () => {
               disabled={!isEditing}
             />
           </div>
-          <br></br>
+          <div className="profileSeperator"></div>
           <h5>Emergency Contact</h5>
           <div className="profileDetails">
             <label>Full Name</label>

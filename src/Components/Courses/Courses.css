@@ -154,17 +154,18 @@
 
   .cardContainer3 h2 {
     padding: 5px;
-    font-size: x-large;
+    font-size: large;
     margin-bottom: 10px;
   }
 
   .courseLessonBox3 h5 {
     font-size: medium;
+    font-weight: 400;
   }
 
   .courseLessonBox3 ul {
     padding: 0px 5px 0px 10px;
-    font-size: 0.75em;
+    font-size: 0.7em;
   }
 
   .courseContainer3 {
@@ -177,60 +178,23 @@
   }
 
   .courseImageTxt3 {
-    font-size: small;
+    font-size: x-small;
   }
 
   .courseDetails3 p {
-    font-size: 0.8em;
+    font-size: 0.7em;
   }
 
   .courseDetailBtn3,
   .lessonDetailBtn3 {
-    padding: 9px 15px;
-    font-size: 0.75em;
+    padding: 8px 10px;
+    font-size: 0.7em;
   }
 }
 
 @media (max-width: 835px) {
-  .main-content {
-    padding: 0px 5px 5px 5px;
-  }
-
-  .cardContainer3 h2 {
-    padding: 5px;
-    font-size: x-large;
-    margin-bottom: 10px;
-  }
-
-  .courseLessonBox3 h5 {
-    font-size: medium;
-  }
-
-  .courseLessonBox3 ul {
-    padding: 0px 5px 0px 10px;
-    font-size: 0.75em;
-  }
-
   .courseContainer3 {
     gap: 20px;
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  .courseImage3 {
-    height: 150px;
-  }
-
-  .courseImageTxt3 {
-    font-size: small;
-  }
-
-  .courseDetails3 p {
-    font-size: 0.8em;
-  }
-
-  .courseDetailBtn3,
-  .lessonDetailBtn3 {
-    padding: 9px 15px;
-    font-size: 0.75em;
   }
 }

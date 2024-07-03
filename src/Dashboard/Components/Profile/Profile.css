@@ -1,5 +1,6 @@
 .profileContainer {
   display: flex;
+  /* height: 100vh; */
   padding: 40px 50px;
   cursor: default;
   align-items: center;
@@ -10,7 +11,6 @@
 
 .profileBanner {
   width: 100%;
-  /* background-color: aqua; */
 }
 
 .profileBGBox {
@@ -24,7 +24,7 @@
   background-size: cover;
   background-color: var(--primary-dark);
   background-repeat: no-repeat;
-  box-shadow: 0 4px 20px rgba (0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* .profileBGTxt {
@@ -170,4 +170,127 @@
   margin-top: 1.5%;
   margin-left: 10px;
   /* background-color: red; */
+}
+
+.profileSeperator {
+  height: 15px;
+}
+
+@media (max-width: 1125px) {
+  .profileContainer {
+    padding: 12px 18px;
+    height: auto;
+  }
+
+  .profileBGBox {
+    height: 100px;
+    /* background-color: blue; */
+  }
+
+  .profileBG {
+    width: 50px;
+  }
+
+  .profileBGTxt h1 {
+    padding: 2.5px 5px;
+    font-size: small;
+  }
+
+  .profileBGTxt h6 {
+    padding: 2.5px 5px;
+    font-size: xx-small;
+  }
+
+  .profileImage img {
+    width: 50px;
+    left: 5px;
+  }
+
+  .profileHeaderInfo {
+    margin-left: 10px;
+  }
+
+  .profileName {
+    margin: 0%;
+    font-size: small;
+  }
+
+  .profileEmail {
+    margin: 0%;
+    font-size: xx-small;
+  }
+
+  .profileEditBtn button {
+    width: 100%;
+    padding: 3px 8px;
+    font-size: x-small;
+  }
+
+  /*  */
+
+  .profileContent {
+    flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
+  }
+
+  .profileSection {
+    width: 100%;
+    padding: 12px 12px 0px 12px;
+    margin-bottom: 15px;
+    /* background-color: rebeccapurple; */
+  }
+
+  .profileSection h5 {
+    font-weight: 500;
+    font-size: small;
+    margin-bottom: 10px;
+    /* background-color: aquamarine; */
+  }
+
+  .profileDetails label {
+    width: 35%;
+    color: gray;
+    font-size: 0.55em;
+    margin-bottom: 0px;
+    text-align: left;
+    /* background-color: aqua; */
+    /* font-weight: 500; */
+  }
+
+  .profileDetails input,
+  .profileDetails textarea {
+    font-size: 0.55em;
+    /* background-color: red; */
+  }
+
+  .profileSPLBox {
+    padding: 2.5px;
+    border-radius: 15px;
+    /* background-color: #f3e6ffdb; */
+  }
+
+  .profileSPLBox img {
+    scale: 0.7;
+  }
+
+  .profileSPLBox label {
+    margin: 0px;
+    padding: 0px;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    /* background-color: red; */
+  }
+
+  .profileSPLBox input {
+    margin: 0px;
+    padding: 0px;
+    width: 75%;
+  }
+
+  .profileSeperator {
+    height: 0px;
+  }
 }
