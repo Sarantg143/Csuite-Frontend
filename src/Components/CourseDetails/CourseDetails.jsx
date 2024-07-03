@@ -141,8 +141,7 @@ const CourseDetails = () => {
                                     </a>
                                   </span>
                                   <span className="lesson-duration">
-                                    Duration:{" "}
-                                    {convertToReadableDuration(video.duration)}
+                                    Duration: {video.duration}
                                   </span>
                                 </li>
                               ))}
@@ -161,7 +160,7 @@ const CourseDetails = () => {
               >
                 {courseContentDetailsData.overviewPoints.map((point, index) => (
                   <div key={index}>
-                    <h5>* {point.heading}</h5>
+                    <h5>{point.heading}</h5>
                     <p>{point.content}</p>
                   </div>
                 ))}{" "}
