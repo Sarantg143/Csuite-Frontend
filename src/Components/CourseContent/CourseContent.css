@@ -89,6 +89,7 @@
 }
 
 .profileBox,
+.testButton,
 .settingBox,
 .HelpBox,
 .logoutBox {
@@ -103,6 +104,7 @@
 }
 
 .profileBox:hover,
+.testButton:hover,
 .settingBox:hover,
 .HelpBox:hover,
 .logoutBox:hover {
@@ -234,6 +236,31 @@
 .list-group-item {
   padding: 8px 10px;
   /* background-color: palegoldenrod; */
+}
+
+.testButtonBox {
+  padding: 8px 15px;
+  margin-top: 7px;
+  display: flex;
+  gap: 5px;
+  color: var(--primary-dark);
+  outline: none;
+  border: none;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: var(--primary-bg);
+}
+
+.flexyBox {
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 0%;
+}
+
+.flexyBox button {
+  margin-left: auto;
 }
 
 .list-group-item a {

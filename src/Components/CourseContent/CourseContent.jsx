@@ -5,6 +5,7 @@ import Tabs from "react-bootstrap/Tabs";
 import "./CourseContent.css";
 import { useNavigate } from "react-router-dom";
 import courseData from "../Assets/Data/CourseContentDetails.json";
+import testData from "../Assets/Data/TestData.json";
 
 const CourseContent = () => {
   const navigate = useNavigate();
@@ -35,6 +36,11 @@ const CourseContent = () => {
     const [minutes, seconds] = duration.split(":");
     return `${parseInt(minutes, 10)}m ${parseInt(seconds, 10)}s`;
   }
+
+  //
+  const findCourseTestData = (courseTitle) => {
+    return testData.courses.find((course) => course.title === courseTitle);
+  };
 
   return (
     <div className="courseContentContainer">
@@ -93,6 +99,15 @@ const CourseContent = () => {
                         </li>
                       ))}
                     </ul>
+                    <div className="testButtonBox flexyBox">
+                      <span>Take a Test to Confirm Your Understanding</span>
+                      <button
+                        className="testButton"
+                        onClick={() => navigate(`/home/test/${index + 1}`)}
+                      >
+                        Take Test
+                      </button>
+                    </div>
                   </div>
                 ))}
               </Tab>
@@ -143,6 +158,33 @@ const CourseContent = () => {
                           </li>
                         ))}
                       </ul>
+                      {findCourseTestData(courseData.title)?.lessons[index]
+                        ?.isTestAvailable && (
+                        <div className="testButtonBox">
+                          <span>
+                            Take a Test to Confirm Your Understanding{" "}
+                            <div>
+                              Total no of questions:{" "}
+                              {
+                                findCourseTestData(courseData.title)?.lessons[
+                                  index
+                                ]?.questions.length
+                              }
+                              , Time Limit:{" "}
+                              {findCourseTestData(courseData.title)?.lessons[
+                                index
+                              ]?.timeLimit ?? "Not specified"}
+                            </div>
+                          </span>
+
+                          <button
+                            className="testButton"
+                            onClick={() => navigate(`/home/test/${index + 1}`)}
+                          >
+                            Take Test
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </Accordion.Body>
                 </Accordion.Item>

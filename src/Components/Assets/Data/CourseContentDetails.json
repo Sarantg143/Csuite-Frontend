@@ -173,32 +173,33 @@
       ]
     }
   ],
-  "header": "Analog and Digital Modulation",
+
+  "header": "Strategic Leadership and Management",
   "videoUrl": "https://www.youtube.com/embed/Zj6x_7i1jYY",
   "whoIsThisFor": [
     {
-      "text": "Electrical Engineering 3rd Semester",
+      "text": "Executives and Managers",
       "icon": "lightning.svg"
     },
     {
-      "text": "Electrical Engineering 5th Semester",
+      "text": "Business Leaders",
       "icon": "lightning.svg"
     },
     {
-      "text": "Mechanical Engineering 5th Semester",
+      "text": "Aspiring Leaders",
       "icon": "settings.svg"
     }
   ],
   "whatYouGet": [
     {
       "icon": "tickIcon.svg",
-      "title": "Master Core Concepts",
-      "description": "Understand engineering fundamentals for a strong academic foundation."
+      "title": "Comprehensive Curriculum",
+      "description": "Master essential skills for strategic leadership and management."
     },
     {
       "icon": "tickIcon.svg",
-      "title": "Collaborative Environment",
-      "description": "Join a dynamic community, forging professional relationships."
+      "title": "Interactive Learning",
+      "description": "Engage in hands-on activities and discussions."
     }
   ],
   "syllabus": "Syllabus",

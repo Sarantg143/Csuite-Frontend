@@ -29,6 +29,7 @@ import CourseContent from "./Components/CourseContent/CourseContent";
 import CourseDetails from "./Components/CourseDetails/CourseDetails";
 import Profile from "./Dashboard/Components/Profile/Profile";
 import Enrolled from "./Dashboard/Components/Enrolled/Enrolled";
+import TestPage from "./Dashboard/Components/TestPage/TestPage";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
             <Route path="courses" index element={<Courses />}></Route>
             <Route path="profile" index element={<Profile />}></Route>
             <Route path="enrolled" index element={<Enrolled />}></Route>
+            <Route path="test/:lessonId" index element={<TestPage />} />
           </Route>
           <Route
             path="/courseContent"

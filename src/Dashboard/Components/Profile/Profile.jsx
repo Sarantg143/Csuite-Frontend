@@ -11,6 +11,7 @@ const Profile = () => {
     name: "John Doe",
     email: "johndoe@example.com",
     phone: "1234567890",
+    testScore: "89",
     idCard: "20393-37373",
     jobTitle: "CEO",
     address: "123 Main St, Anytown, USA",
@@ -138,6 +139,15 @@ const Profile = () => {
               value={profileData.address}
               onChange={handleChange}
               disabled={!isEditing}
+            />
+          </div>
+          <div className="profileDetails">
+            <label>Test Score</label>
+            <input
+              type="number"
+              name="testScore"
+              value={profileData.testScore}
+              disabled
             />
           </div>
           <div className="profileSeperator"></div>
