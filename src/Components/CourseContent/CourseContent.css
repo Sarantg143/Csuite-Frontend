@@ -251,6 +251,26 @@
   background-color: var(--primary-bg);
 }
 
+.testButtonBox div {
+  display: flex;
+  width: 100%;
+  border-radius: 5px;
+  padding: 2px 3px;
+  background-color: white;
+}
+
+.testButtonBox div div {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+}
+
+.testButton {
+  /* width: 40%; */
+  padding: 5px 15px;
+  margin-left: auto;
+}
+
 .flexyBox {
   flex-direction: row;
   align-items: center;

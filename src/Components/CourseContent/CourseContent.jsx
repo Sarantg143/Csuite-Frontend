@@ -161,28 +161,33 @@ const CourseContent = () => {
                       {findCourseTestData(courseData.title)?.lessons[index]
                         ?.isTestAvailable && (
                         <div className="testButtonBox">
-                          <span>
-                            Take a Test to Confirm Your Understanding{" "}
+                          Take a Test to Confirm Your Understanding{" "}
+                          <div>
                             <div>
-                              Total no of questions:{" "}
-                              {
-                                findCourseTestData(courseData.title)?.lessons[
+                              <span>
+                                Total questions:{" "}
+                                {
+                                  findCourseTestData(courseData.title)?.lessons[
+                                    index
+                                  ]?.questions.length
+                                }
+                              </span>
+                              <span>
+                                Time Limit:{" "}
+                                {findCourseTestData(courseData.title)?.lessons[
                                   index
-                                ]?.questions.length
-                              }
-                              , Time Limit:{" "}
-                              {findCourseTestData(courseData.title)?.lessons[
-                                index
-                              ]?.timeLimit ?? "Not specified"}
+                                ]?.timeLimit ?? "Not specified"}
+                              </span>
                             </div>
-                          </span>
-
-                          <button
-                            className="testButton"
-                            onClick={() => navigate(`/home/test/${index + 1}`)}
-                          >
-                            Take Test
-                          </button>
+                            <button
+                              className="testButton"
+                              onClick={() =>
+                                navigate(`/home/test/${index + 1}`)
+                              }
+                            >
+                              Take Test
+                            </button>
+                          </div>
                         </div>
                       )}
                     </div>
