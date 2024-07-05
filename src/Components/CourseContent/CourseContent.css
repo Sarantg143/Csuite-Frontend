@@ -117,7 +117,7 @@
   width: 100%;
 }
 
-.secondRow .col-8 {
+.secondRow .col-md-8 {
   padding-left: 0%;
 }
 
@@ -130,14 +130,15 @@
   box-shadow: 0px 4px 6px var(--shadow-color);
 }
 
-.videoTitle {
+/* .videoTitle {
+  font-size: 1.3em;
   background-color: yellow;
   color: var(--primary-dark);
-}
+} */
 
-.tabBox {
+/* .tabBox {
   box-shadow: 0px 4px 6px var(--shadow-color);
-}
+} */
 
 .accordianBox {
   padding: 5px 15px;
@@ -289,3 +290,79 @@
   text-decoration: none;
   color: var(--primary-dark);
 }
+
+/*  */
+.CCbgColor {
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 4px 6px var(--shadow-color);
+}
+
+.showClassForXS {
+  display: none;
+}
+
+/*  */
+@media (max-width: 1125px) {
+  .hideClassForXS {
+    display: none;
+  }
+
+  .showClassForXS {
+    display: flex;
+  }
+
+  .firstRow {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .courseHeading {
+    font-size: 0.99em;
+    /* flex: 3; */
+  }
+
+  .firstRowBtn {
+    padding: 5px 10px;
+    /* flex: 1; */
+    margin: 0;
+    font-size: 0.7em;
+  }
+
+  .btnRows {
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: space-between;
+  }
+
+  .pdy .videoBox {
+    padding-left: 0% !important;
+    padding-right: 0% !important;
+    margin-bottom: -10px;
+  }
+
+  .secondRow .col-md-8 {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .testButtonBox {
+    padding: 8px 12px;
+    font-size: 0.825em;
+  }
+
+  .testButtonBox div div {
+    font-size: 0.85em;
+  }
+
+  .testButton {
+    font-size: 0.85em;
+    margin: auto;
+  }
+}
+
+/* 
+  margin-right: -10px;
+  margin-left: 10px;
+   */

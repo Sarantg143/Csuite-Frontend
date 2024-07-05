@@ -1,4 +1,3 @@
-/* src/components/Sidebar.css */
 .sidebar {
   position: sticky;
   top: 0;
@@ -8,8 +7,10 @@
   width: 200px;
   height: 100vh;
   padding: 20px;
+  background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  transition: transform 0.3s ease-in-out;
 }
 
 .logo-container {
@@ -23,12 +24,6 @@
   font-size: 4px;
   font-weight: bold;
 }
-
-/* h2 {
-  color: #3F3C69;
-  font-size: 18px;
-  font-weight: bold;
-} */
 
 .menu {
   flex: 1;
@@ -71,39 +66,72 @@
   color: #fff;
 }
 
-/*  */
+.bottom {
+  margin-top: auto;
+}
+
+.hamburger {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  color: #0b0739;
+  font-size: 20px;
+  z-index: 1100;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  background-color: var(--primary-bg);
+}
 
 @media (max-width: 1125px) {
+  .hamburger {
+    display: block;
+  }
+
   .sidebar {
-    width: 130px;
-    padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    width: 200px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
   }
 
-  .menu-item {
-    padding: 5px 10px;
-    margin-bottom: 17px;
+  .sidebar.open {
+    transform: translateX(0);
   }
 
-  .logo-container {
-    margin-top: 10px;
-    margin-bottom: 20px;
+  .bottom {
+    margin-top: auto;
+    margin-bottom: 35px;
   }
 
-  .logo {
-    height: 35px;
-  }
-  .menu-item span {
-    font-size: 12px;
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    display: none;
   }
 
-  .menu-item .icon {
-    font-size: 15px;
+  .sidebar.open + .overlay {
+    display: block;
   }
 }
 
 @media (max-width: 835px) {
   .sidebar {
-    width: 130px;
+    width: 140px;
     padding: 10px;
   }
 

@@ -4,7 +4,7 @@
   padding: 20px;
   /* align-items: center; */
   flex-direction: column;
-  background-color: white;
+  background-color: var(--primary-bg);
 }
 
 /*  */
@@ -183,7 +183,7 @@
   padding: 5px 10px;
   border-top-right-radius: 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.232);
-  background-color: #cc96ff;
+  background-color: #e0bcff;
 }
 
 .testAnswerHere {
@@ -233,7 +233,7 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   justify-content: end;
-  background-color: #cc96ff;
+  background-color: #e0bcff;
 }
 
 .testPageNextButton,
@@ -253,7 +253,7 @@
 
 @media (max-width: 1125px) {
   .testPage {
-    height: auto;
+    height: 100vh;
   }
 
   /*  */

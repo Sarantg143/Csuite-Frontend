@@ -11,9 +11,14 @@ const CourseContent = () => {
   const navigate = useNavigate();
 
   const [activeLesson, setActiveLesson] = useState(null);
+  const [activeLessonTab, setActiveLessonTab] = useState(null);
 
   const handleLessonClick = (index) => {
     setActiveLesson(index === activeLesson ? null : index);
+  };
+
+  const handleLessonClickTab = (index) => {
+    setActiveLessonTab(index === activeLessonTab ? null : index);
   };
 
   const [activeTab, setActiveTab] = useState("description");
@@ -44,7 +49,7 @@ const CourseContent = () => {
 
   return (
     <div className="courseContentContainer">
-      <div className="row firstRow">
+      <div className="row firstRow hideClassForXS">
         <div className="col-8">
           <button className="row firstRowBtn" onClick={() => navigate(-1)}>
             <span>&larr;</span>&nbsp;&nbsp;Back
@@ -63,9 +68,18 @@ const CourseContent = () => {
           <button className="logoutBox">Logout</button>
         </div>
       </div>
+      <div className="row firstRow showClassForXS g-0">
+        <div className="btnRows">
+          <button className="firstRowBtn" onClick={() => navigate(-1)}>
+            Go Back
+          </button>
+          <button className="firstRowBtn">Next Video</button>
+        </div>
 
+        <div className="courseHeading">{courseData.title}</div>
+      </div>
       <div className="row secondRow">
-        <div className="col-8">
+        <div className="col-md-8 pdy">
           <div className="videoBox">
             <div className="embed-responsive embed-responsive-16by9 mb-4">
               <iframe
@@ -75,10 +89,10 @@ const CourseContent = () => {
                 allowFullScreen
               ></iframe>
             </div>
-            <div className="videoTitle">{courseData.title}</div>
+            {/* <div className="videoTitle">{courseData.title}</div> */}
           </div>
 
-          <div className="tabBox">
+          {/* <div className="tabBox">
             <Tabs
               id="course-content-tabs"
               activeKey={activeTab}
@@ -115,9 +129,113 @@ const CourseContent = () => {
                 <p>{courseData.overview}</p>
               </Tab>
             </Tabs>{" "}
+          </div> */}
+          <div className="CDtabBox CCbgColor">
+            <Tabs
+              id="course-content-tabs"
+              activeKey={activeTab}
+              onSelect={(k) => setActiveTab(k)}
+            >
+              <Tab
+                eventKey="description"
+                title="Description"
+                className="CDtabBoxDesc"
+              >
+                <p>{courseData.description}</p>
+              </Tab>
+              <Tab eventKey="lessons" title="Lessons">
+                <div className="CDAccordianBox">
+                  <Accordion
+                    activeKey={activeLessonTab}
+                    onSelect={handleLessonClickTab}
+                  >
+                    {courseData.lessons.map((lesson, index) => (
+                      <Accordion.Item key={index} eventKey={index}>
+                        <Accordion.Header>
+                          <div className="CDlesson-meta">
+                            <div className="CDlesson-title">
+                              {index + 1}. {lesson.title}
+                            </div>
+                            <span className="CDlesson-duration">
+                              Duration: {calculateTotalDuration(lesson.videos)}
+                            </span>
+                            <span className="">
+                              &nbsp;/&nbsp; Total Videos: {lesson.videos.length}
+                            </span>
+                          </div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <div>
+                            <ul className="list-group">
+                              {lesson.videos.map((video, vidIndex) => (
+                                <li key={vidIndex} className="list-group-item">
+                                  <span className="video-number">
+                                    <a href={video.link}>
+                                      {`${index + 1}.${vidIndex + 1}`}{" "}
+                                      {video.title}
+                                    </a>
+                                  </span>
+                                  <span className="lesson-duration">
+                                    Duration: {video.duration}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                            {findCourseTestData(courseData.title)?.lessons[
+                              index
+                            ]?.isTestAvailable && (
+                              <div className="testButtonBox">
+                                Take a Test to Confirm Your Understanding{" "}
+                                <div>
+                                  <div>
+                                    <span>
+                                      Total questions:{" "}
+                                      {
+                                        findCourseTestData(courseData.title)
+                                          ?.lessons[index]?.questions.length
+                                      }
+                                    </span>
+                                    <span>
+                                      Time Limit:{" "}
+                                      {findCourseTestData(courseData.title)
+                                        ?.lessons[index]?.timeLimit ??
+                                        "Not specified"}
+                                    </span>
+                                  </div>
+                                  <button
+                                    className="testButton"
+                                    onClick={() =>
+                                      navigate(`/home/test/${index + 1}`)
+                                    }
+                                  >
+                                    Take Test
+                                  </button>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    ))}
+                  </Accordion>
+                </div>
+              </Tab>
+              <Tab
+                eventKey="overview"
+                title="Overview"
+                className="CDtabBoxOverV"
+              >
+                {courseData.overviewPoints.map((point, index) => (
+                  <div key={index}>
+                    <h5>{point.heading}</h5>
+                    <p>{point.content}</p>
+                  </div>
+                ))}{" "}
+              </Tab>
+            </Tabs>
           </div>
         </div>
-        <div className="col-4 accordianBox">
+        <div className="col-md-4 hideClassForXS accordianBox">
           <Accordion
             activeKey={activeLesson}
             onSelect={handleLessonClick}
