@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Tabs, Tab, Accordion } from "react-bootstrap";
 import courseContentDetailsData from "../Assets/Data/CourseContentDetails.json";
+import CourseRecommendation from "../CourseRecomend/CourseRecommendation";
 
 const CourseDetails = () => {
   const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState("description");
   const [activeLesson, setActiveLesson] = useState("");
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleLessonClick = (index) => {
     setActiveLesson(index === activeLesson ? "" : index);
@@ -34,10 +36,13 @@ const CourseDetails = () => {
     return require(`../Assets/SVG/${relativePath}`);
   };
 
+  const toggleDescription = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="courseDetailsBox">
       <div className="row CDHeader g-0">
-        {/* {courseContentDetailsData.header} */}
         <div className="CDHeaderIntroVideo">
           <div className="embed-responsive-16by9">
             <iframe
@@ -66,7 +71,7 @@ const CourseDetails = () => {
             <div className="CDLightningBox">
               {courseContentDetailsData.whoIsThisFor.map((item, index) => (
                 <div key={index}>
-                  <div className="CDLightningTxt" key={index}>
+                  <div className="CDLightningTxt">
                     {item.text}
                     <img
                       className="CDLightningSVG"
@@ -103,7 +108,87 @@ const CourseDetails = () => {
                 title="Description"
                 className="CDtabBoxDesc"
               >
-                <p>{courseContentDetailsData.description}</p>
+                <h1 style={{ fontSize: "25px" }} className="px-4">
+                  {courseContentDetailsData.title}
+                </h1>
+                <br />
+                <p className="text- px-4">
+                  {isExpanded
+                    ? courseContentDetailsData.description
+                    : courseContentDetailsData.description
+                        .split("\n")
+                        .slice(0, 1)
+                        .join(" ")}
+                  {!isExpanded && (
+                    <span
+                      className="read-more-link text-primary"
+                      onClick={toggleDescription}
+                      style={{ cursor: "pointer" }}
+                    >
+                      Read More
+                    </span>
+                  )}
+                  {isExpanded && (
+                    <span
+                      className="read-more-link text-primary "
+                      style={{ cursor: "pointer" }}
+                      onClick={toggleDescription}
+                    >
+                      Read Less
+                    </span>
+                  )}
+                </p>
+                <br />
+                <h2 style={{ fontSize: "20px" }} className="px-4">
+                  {" "}
+                  What you will gain after completion of the course
+                </h2>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    flexWrap: "wrap",
+                    gap: "20px",
+                  }}
+                  className="px-4"
+                >
+                  {courseContentDetailsData.overviewPoints.map(
+                    (point, index) => (
+                      <span
+                        key={index}
+                        className="overview-button px-3"
+                        style={{
+                          backgroundColor: "#f3e6ff",
+                          borderRadius: "20px",
+                        }}
+                      >
+                        {point.heading}
+                      </span>
+                    )
+                  )}
+                </div>
+                <br />
+                <h2 className="px-4" style={{ fontSize: "20px" }}>
+                  Recommended Courses
+                </h2>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    flexWrap: "wrap",
+                    gap: "20px",
+                  }}
+                  className="px-4"
+                >
+                  {courseContentDetailsData.recommendedCourses.map(
+                    (course, index) => (
+                      <CourseRecommendation
+                        title={course.title}
+                        description={course.description}
+                      />
+                    )
+                  )}
+                </div>
               </Tab>
               <Tab eventKey="lessons" title="Lessons">
                 <div className="CDAccordianBox">
@@ -163,7 +248,7 @@ const CourseDetails = () => {
                     <h5>{point.heading}</h5>
                     <p>{point.content}</p>
                   </div>
-                ))}{" "}
+                ))}
               </Tab>
             </Tabs>
           </div>

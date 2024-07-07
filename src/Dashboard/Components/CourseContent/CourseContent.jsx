@@ -6,6 +6,10 @@ import "./CourseContent.css";
 import { useNavigate } from "react-router-dom";
 import courseData from "../Assets/Data/CourseContentDetails.json";
 import testData from "../Assets/Data/TestData.json";
+import PersonIcon from "../Assets/SVG/PersonIcon.svg";
+import SettingsIcon from "../Assets/SVG/SettingsIcon.svg";
+import LogoutIcon from "../Assets/SVG/LogoutIcon.svg";
+import HomeIcon from "../Assets/SVG/HomeIcon.svg";
 
 const CourseContent = () => {
   const navigate = useNavigate();
@@ -50,8 +54,9 @@ const CourseContent = () => {
   return (
     <div className="courseContentContainer">
       <div className="row firstRow hideClassForXS">
-        <div className="col-8">
-          <button className="row firstRowBtn" onClick={() => navigate(-1)}>
+        <div className="TopBar col-8 ">
+          {/* 
+           <button className="row firstRowBtn" onClick={() => navigate(-1)}>
             <span>&larr;</span>&nbsp;&nbsp;Back
           </button>
           <div className="row firstRowHeadingBox">
@@ -59,13 +64,34 @@ const CourseContent = () => {
             <button className="col-2">
               Next video &nbsp; <span>&#5171;</span>
             </button>
+          </div> */}
+          <div className="TopBar">
+            <button className="BackBtn" onClick={() => navigate(-1)}>
+              Back
+            </button>
+          </div>
+          <div className="TitleBar">{courseData.title}</div>
+          <div className=" TopBar">
+            <button className="BackBtn">Next</button>
           </div>
         </div>
         <div className="col-4 settingTab">
-          <button className="profileBox">Profile</button>
-          <button className="settingBox">Setting</button>
-          <button className="HelpBox">Help</button>
-          <button className="logoutBox">Logout</button>
+          <div className="MenuBarIcons">
+            <img src={HomeIcon} alt="" />
+            <p>Home</p>
+          </div>
+          <div className="MenuBarIcons">
+            <img src={PersonIcon} alt="" />
+            <p>Profile</p>
+          </div>
+          <div className="MenuBarIcons">
+            <img src={SettingsIcon} alt="" />
+            <p>Settings</p>
+          </div>
+          <div className="MenuBarIcons">
+            <img src={LogoutIcon} alt="" />
+            <p>Logout</p>
+          </div>
         </div>
       </div>
       <div className="row firstRow showClassForXS g-0">
@@ -89,48 +115,24 @@ const CourseContent = () => {
                 allowFullScreen
               ></iframe>
             </div>
-            {/* <div className="videoTitle">{courseData.title}</div> */}
+            <div>
+              <div className="infoBox">
+                <h1 style={{ fontSize: "25px" }} className="my-2">
+                  {courseData.title}
+                </h1>
+                <div className="lessonDescriptionBox my-3">
+                  <h3 className="lessonDescriptionBoxTitle my-2">
+                    1. {courseData.lessons[0].title}
+                  </h3>
+                  <p className="lessonDescriptionBoxDescription">
+                    {courseData.lessons[0].description}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* <div className="tabBox">
-            <Tabs
-              id="course-content-tabs"
-              activeKey={activeTab}
-              onSelect={(k) => setActiveTab(k)}
-            >
-              <Tab eventKey="description" title="Description">
-                <p>{courseData.lessons[0].description}</p>
-              </Tab>
-              <Tab eventKey="lessons" title="Lessons">
-                {courseData.lessons.map((lesson, index) => (
-                  <div key={index}>
-                    <h5>{lesson.title}</h5>
-                    <ul className="list-group">
-                      {lesson.videos.map((video, vidIndex) => (
-                        <li key={vidIndex} className="list-group-item">
-                          <a href={video.link}>{video.title}</a> -{" "}
-                          {video.duration}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="testButtonBox flexyBox">
-                      <span>Take a Test to Confirm Your Understanding</span>
-                      <button
-                        className="testButton"
-                        onClick={() => navigate(`/home/test/${index + 1}`)}
-                      >
-                        Take Test
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </Tab>
-              <Tab eventKey="overview" title="Overview">
-                <p>{courseData.overview}</p>
-              </Tab>
-            </Tabs>{" "}
-          </div> */}
-          <div className="CDtabBox CCbgColor">
+          {/* <div className="CDtabBox CCbgColor">
             <Tabs
               id="course-content-tabs"
               activeKey={activeTab}
@@ -233,7 +235,7 @@ const CourseContent = () => {
                 ))}{" "}
               </Tab>
             </Tabs>
-          </div>
+          </div> */}
         </div>
         <div className="col-md-4 hideClassForXS accordianBox">
           <Accordion

@@ -1,10 +1,10 @@
 import React from "react";
-import "../../../Components/Courses/Courses.css";
+import "../Courses/Courses.css";
 import { useNavigate } from "react-router-dom";
-import coursesData from "../../../Components/Assets/Data/CourseList.json";
+import coursesData from "../Assets/Data/CourseList.json";
 
 const resolveImagePath = (relativePath) => {
-  return require(`../../../Components/Assets/Images/${relativePath}`);
+  return require(`../Assets/Images/${relativePath}`);
 };
 
 const Enrolled = () => {

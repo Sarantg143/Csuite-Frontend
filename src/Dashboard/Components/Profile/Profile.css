@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-image: url("../../../Components/Assets/SVG/profileSVG.svg");
+  background-image: url("../Assets/SVG/profileSVG.svg");
   border-radius: 15px;
   background-size: cover;
   background-color: var(--primary-dark);

@@ -78,21 +78,88 @@
   background-color: aqua;
 } */
 
+.MenuBarIcons {
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.TopBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.TitleBar {
+  font-weight: 500;
+  font-size: 30px;
+}
+.BackBtn {
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: var(--primary-bg);
+  position: relative;
+
+  font-size: 17px;
+  /* -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27); */
+  /* box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27); */
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.BackBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: var(--primary-color);
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.BackBtn:hover {
+  color: #e8e8e8;
+}
+
+.BackBtn:hover::before {
+  width: 100%;
+}
+
 .settingTab {
   display: flex;
   margin-right: -10px;
   margin-left: 10px;
   border-radius: 10px;
-  align-items: center;
   justify-content: space-between;
   background-color: var(--primary-bg);
 }
 
-.profileBox,
-.testButton,
-.settingBox,
-.HelpBox,
-.logoutBox {
+.infoBox {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px var(--shadow-color);
+  padding: 20px;
+}
+.lessonDescriptionBox {
+  background-color: var(--primary-bg);
+  border-radius: 10px;
+  padding: 10px;
+}
+.lessonDescriptionBoxTitle {
+  font-size: 20px;
+}
+.lessonDescriptionBoxDescription {
+  padding-left: 18px;
+}
+
+.testButton {
   outline: none;
   border: none;
   border-radius: 8px;
@@ -103,11 +170,7 @@
   transition: background-color 0.3s;
 }
 
-.profileBox:hover,
-.testButton:hover,
-.settingBox:hover,
-.HelpBox:hover,
-.logoutBox:hover {
+.testButton:hover {
   background-color: var(--primary-color);
   box-shadow: 0px 4px 6px var(--shadow-light);
 }

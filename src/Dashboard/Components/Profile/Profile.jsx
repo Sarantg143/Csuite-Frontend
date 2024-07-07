@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Profile.css";
-import profileIMG from "../../../Components/Assets/Images/profileImage.jpeg";
-import profileVector from "../../../Components/Assets/Images/profileVector.png";
-import phoneSVG from "../../../Components/Assets/SVG/phoneSVG.svg";
-import mailSVG from "../../../Components/Assets/SVG/mailSVG.svg";
+import profileIMG from "../Assets/Images/profileImage.jpeg";
+import profileVector from "../Assets/Images/profileVector.png";
+import phoneSVG from "../Assets/SVG/phoneSVG.svg";
+import mailSVG from "../Assets/SVG/mailSVG.svg";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);

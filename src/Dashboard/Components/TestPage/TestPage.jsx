@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import testData from "../../../Components/Assets/Data/TestData.json";
+import testData from "../Assets/Data/TestData.json";
 import "./TestPage.css";
 
 const TestPage = () => {

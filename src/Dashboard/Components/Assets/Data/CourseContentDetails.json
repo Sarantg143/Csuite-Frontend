@@ -46,17 +46,19 @@
   "lessons": [
     {
       "title": "Introduction to Strategic Planning",
-      "description": "Explore the fundamentals of strategic planning and its importance in achieving organizational goals.",
+      "description": "Explore the fundamentals of strategic planning and its importance in achieving organizational goals. This video covers the basic principles of strategic planning, including setting goals, analyzing environments, and formulating strategies.",
       "videos": [
         {
           "title": "Strategic Planning Overview",
           "link": "#",
-          "duration": "14:20"
+          "duration": "14:20",
+          "notes": "This video covers the basic principles of strategic planning, including setting goals, analyzing environments, and formulating strategies."
         },
         {
           "title": "Strategic Visioning",
           "link": "#",
-          "duration": "12:45"
+          "duration": "12:45",
+          "notes": "In this video, learn about creating a strategic vision that aligns with your organization's long-term objectives."
         }
       ]
     },
@@ -67,12 +69,14 @@
         {
           "title": "Change Management Essentials",
           "link": "#",
-          "duration": "18:30"
+          "duration": "18:30",
+          "notes": "This video provides an overview of change management principles and strategies to manage transitions smoothly."
         },
         {
           "title": "Leading Through Crisis",
           "link": "#",
-          "duration": "16:15"
+          "duration": "16:15",
+          "notes": "Discover techniques for effective leadership during crises, including maintaining stability and guiding teams through uncertainty."
         }
       ]
     },
@@ -83,12 +87,14 @@
         {
           "title": "Innovation Frameworks",
           "link": "#",
-          "duration": "20:10"
+          "duration": "20:10",
+          "notes": "Understand different frameworks for fostering innovation within your organization."
         },
         {
           "title": "Entrepreneurial Mindset",
           "link": "#",
-          "duration": "14:55"
+          "duration": "14:55",
+          "notes": "Learn about the entrepreneurial mindset and how to cultivate it to drive business success."
         }
       ]
     },
@@ -99,12 +105,14 @@
         {
           "title": "Decision Analysis",
           "link": "#",
-          "duration": "17:40"
+          "duration": "17:40",
+          "notes": "This video covers various decision analysis techniques to aid in making strategic choices."
         },
         {
           "title": "Risk Management Strategies",
           "link": "#",
-          "duration": "15:25"
+          "duration": "15:25",
+          "notes": "Explore strategies for managing risk and making informed decisions under uncertainty."
         }
       ]
     },
@@ -115,12 +123,14 @@
         {
           "title": "Team Dynamics",
           "link": "#",
-          "duration": "19:05"
+          "duration": "19:05",
+          "notes": "Understand the dynamics of high-performance teams and how to foster collaboration and productivity."
         },
         {
           "title": "Motivation and Engagement",
           "link": "#",
-          "duration": "13:50"
+          "duration": "13:50",
+          "notes": "Learn techniques to motivate and engage your team to achieve peak performance."
         }
       ]
     },
@@ -131,12 +141,14 @@
         {
           "title": "Brand Strategy",
           "link": "#",
-          "duration": "16:55"
+          "duration": "16:55",
+          "notes": "This video explores how to develop a strong brand strategy that resonates with your target audience."
         },
         {
           "title": "Digital Marketing Trends",
           "link": "#",
-          "duration": "14:30"
+          "duration": "14:30",
+          "notes": "Stay updated with the latest digital marketing trends and how to leverage them for your brand."
         }
       ]
     },
@@ -147,12 +159,14 @@
         {
           "title": "Financial Analysis",
           "link": "#",
-          "duration": "18:20"
+          "duration": "18:20",
+          "notes": "Learn the basics of financial analysis to understand your organization's financial health."
         },
         {
           "title": "Budgeting and Forecasting",
           "link": "#",
-          "duration": "12:40"
+          "duration": "12:40",
+          "notes": "Explore budgeting and forecasting techniques to plan for your organization's financial future."
         }
       ]
     },
@@ -163,12 +177,14 @@
         {
           "title": "Corporate Ethics",
           "link": "#",
-          "duration": "15:30"
+          "duration": "15:30",
+          "notes": "Understand the importance of corporate ethics and how to implement ethical practices in your organization."
         },
         {
           "title": "Governance Structures",
           "link": "#",
-          "duration": "13:15"
+          "duration": "13:15",
+          "notes": "Learn about different governance structures and their role in ensuring organizational accountability."
         }
       ]
     }
@@ -228,6 +244,18 @@
     {
       "icon": "🔑",
       "text": "Lifetime access to materials"
+    }
+  ],
+  "recommendedCourses": [
+    {
+      "title": "Recommended Course 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi magna sapien, cursus quis ultricies sit amet, bibendum sit amet dolor. Cras sit amet risus vitae lectus gravida sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas sit amet venenatis ligula. Duis aliquam, libero eu posuere fringilla, augue neque pulvinar enim, nec lobortis dui libero sit amet lectus. Quisque et nunc felis. Duis placerat odio vel nisl vulputate imperdiet. Mauris feugiat egestas rutrum. Curabitur tincidunt, massa quis fermentum varius, libero dolor porttitor tortor, at tempus lectus dolor a enim. Proin molestie lorem turpis. Vivamus nulla felis, elementum sed hendrerit vel, volutpat malesuada diam. Maecenas accumsan eros eu lorem luctus, ac dictum sapien euismod. Integer ornare consequat consectetur. Nunc aliquet commodo elit, sed imperdiet urna fermentum nec.",
+      "link": "/course/recommended-course-1"
+    },
+    {
+      "title": "Recommended Course 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi magna sapien, cursus quis ultricies sit amet, bibendum sit amet dolor. Cras sit amet risus vitae lectus gravida sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas sit amet venenatis ligula. Duis aliquam, libero eu posuere fringilla, augue neque pulvinar enim, nec lobortis dui libero sit amet lectus. Quisque et nunc felis. Duis placerat odio vel nisl vulputate imperdiet. Mauris feugiat egestas rutrum. Curabitur tincidunt, massa quis fermentum varius, libero dolor porttitor tortor, at tempus lectus dolor a enim. Proin molestie lorem turpis. Vivamus nulla felis, elementum sed hendrerit vel, volutpat malesuada diam. Maecenas accumsan eros eu lorem luctus, ac dictum sapien euismod. Integer ornare consequat consectetur. Nunc aliquet commodo elit, sed imperdiet urna fermentum nec.",
+      "link": "/course/recommended-course-2"
     }
   ]
 }
