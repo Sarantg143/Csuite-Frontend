@@ -9,7 +9,9 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [profileData, setProfileData] = useState({});
   const [profileImage, setProfileImage] = useState(profileIMG);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [profileBanner, setProfileBanner] = useState(profileVector);
+  const [selectedProfileImage, setSelectedProfileImage] = useState(null);
+  const [selectedProfileBanner, setSelectedProfileBanner] = useState(null);
 
   useEffect(() => {
     fetch("https://csuite-production.up.railway.app/api/user")
@@ -18,6 +20,9 @@ const Profile = () => {
         setProfileData(data.user);
         if (data.user.profilePic) {
           setProfileImage(`data:image/jpeg;base64,${data.user.profilePic}`);
+        }
+        if (data.user.profileBanner) {
+          setProfileBanner(`data:image/jpeg;base64,${data.user.profileBanner}`);
         }
       });
   }, []);
@@ -45,12 +50,22 @@ const Profile = () => {
     }
   };
 
-  const handleImageChange = (e) => {
+  const handleProfileImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-      setSelectedFile(file);
+      setSelectedProfileImage(file);
       const reader = new FileReader();
       reader.onload = (e) => setProfileImage(e.target.result);
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleProfileBannerChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      setSelectedProfileBanner(file);
+      const reader = new FileReader();
+      reader.onload = (e) => setProfileBanner(e.target.result);
       reader.readAsDataURL(file);
     }
   };
@@ -61,8 +76,11 @@ const Profile = () => {
     for (const key in profileData) {
       formData.append(key, profileData[key]);
     }
-    if (selectedFile) {
-      formData.append("profilePic", selectedFile);
+    if (selectedProfileImage) {
+      formData.append("profilePic", selectedProfileImage);
+    }
+    if (selectedProfileBanner) {
+      formData.append("profileBanner", selectedProfileBanner);
     }
     await fetch(`https://csuite-production.up.railway.app/api/user/${profileData._id}`, {
       method: "PUT",
@@ -78,7 +96,15 @@ const Profile = () => {
             <h1>{profileData.designation}</h1>
             <h6>{profileData.companyName}</h6>
           </span>
-          <img src={profileVector} alt="profileVector" className="profileBG" />
+          <img src={profileBanner} alt="Profile Banner" className="profileBG" />
+          {isEditing && (
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleProfileBannerChange}
+              className="bannerUpload"
+            />
+          )}
         </div>
         <div className="profileHeader">
           <div className="profileImage">
@@ -87,7 +113,7 @@ const Profile = () => {
               <input
                 type="file"
                 accept="image/*"
-                onChange={handleImageChange}
+                onChange={handleProfileImageChange}
                 className="imageUpload"
               />
             )}
@@ -183,8 +209,18 @@ const Profile = () => {
             <label>Phone Number</label>
             <input
               type="text"
-              name="emergencyContact.phoneNumber"
-              value={profileData.emergencyContact?.phoneNumber}
+              name="emergencyContact.phone"
+              value={profileData.emergencyContact?.phone}
+              onChange={handleChange}
+              disabled={!isEditing}
+            />
+          </div>
+          <div className="profileDetails">
+            <label>Address</label>
+            <input
+              type="text"
+              name="emergencyContact.address"
+              value={profileData.emergencyContact?.address}
               onChange={handleChange}
               disabled={!isEditing}
             />
