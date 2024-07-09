@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./Profile.css";
 import profileIMG from "../Assets/Images/profileImage.jpeg";
 import profileVector from "../Assets/Images/profileVector.png";
@@ -8,26 +9,42 @@ import mailSVG from "../Assets/SVG/mailSVG.svg";
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [profileData, setProfileData] = useState({
-    name: "John Doe",
-    email: "johndoe@example.com",
-    phone: "1234567890",
-    testScore: "89",
-    idCard: "20393-37373",
-    jobTitle: "CEO",
-    address: "123 Main St, Anytown, USA",
-    companyName: "Tech Solutions Inc.",
-    designation: "Chief Executive Officer",
-    linkedIn: "https://linkedin.com/in/johndoe",
-    bio: "Experienced leader in the tech industry with over 20 years of experience.",
+    name: "",
+    email: "",
+    phone: "",
+    testScore: "",
+    idCard: "",
+    jobTitle: "",
+    address: "",
+    companyName: "",
+    designation: "",
+    linkedIn: "",
+    bio: "",
     emergencyContact: {
-      name: "Jane Doe",
-      relationship: "Spouse",
-      phone: "0987654321",
-      address: "123 Main St, Anytown, USA",
+      name: "",
+      relationship: "",
+      phone: "",
+      address: "",
     },
   });
 
   const [profileImage, setProfileImage] = useState(profileIMG);
+
+  useEffect(() => {
+    // Fetch user data from the API
+    axios
+      .get("https://csuite-production.up.railway.app/api/user")
+      .then((response) => {
+        setProfileData(response.data);
+        // If the user has a profile image stored in the database, set it here
+        if (response.data.profilePic) {
+          setProfileImage(response.data.profilePic);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   const handleEditClick = () => {
     setIsEditing(!isEditing);
@@ -55,6 +72,16 @@ const Profile = () => {
 
   const handleSaveClick = () => {
     setIsEditing(false);
+
+    // Update user data via the API
+    axios
+      .put("https://csuite-production.up.railway.app/api/user", profileData)
+      .then((response) => {
+        console.log("User data updated successfully:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating user data:", error);
+      });
   };
 
   const handleImageChange = (e) => {
@@ -62,6 +89,27 @@ const Profile = () => {
       const reader = new FileReader();
       reader.onload = (e) => setProfileImage(e.target.result);
       reader.readAsDataURL(e.target.files[0]);
+
+      // Upload the new profile image to the server and update the profileData state
+      const formData = new FormData();
+      formData.append("profilePic", e.target.files[0]);
+
+      axios
+        .post("https://csuite-production.up.railway.app/api/user/profile-pic", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          console.log("Profile image updated successfully:", response.data);
+          setProfileData((prevData) => ({
+            ...prevData,
+            profilePic: response.data.profilePic, // Assuming the API returns the updated profile image URL
+          }));
+        })
+        .catch((error) => {
+          console.error("Error updating profile image:", error);
+        });
     }
   };
 
