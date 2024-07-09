@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./Profile.css";
 import profileIMG from "../Assets/Images/profileImage.jpeg";
 import profileVector from "../Assets/Images/profileVector.png";
@@ -8,41 +7,18 @@ import mailSVG from "../Assets/SVG/mailSVG.svg";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [profileData, setProfileData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    testScore: "",
-    idCard: "",
-    jobTitle: "",
-    address: "",
-    companyName: "",
-    designation: "",
-    linkedIn: "",
-    bio: "",
-    emergencyContact: {
-      name: "",
-      relationship: "",
-      phone: "",
-      address: "",
-    },
-  });
-
+  const [profileData, setProfileData] = useState({});
   const [profileImage, setProfileImage] = useState(profileIMG);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
-    // Fetch user data from the API
-    axios
-      .get("https://csuite-production.up.railway.app/api/user")
-      .then((response) => {
-        setProfileData(response.data);
-        // If the user has a profile image stored in the database, set it here
-        if (response.data.profilePic) {
-          setProfileImage(response.data.profilePic);
+    fetch("https://csuite-production.up.railway.app/api/user")
+      .then((response) => response.json())
+      .then((data) => {
+        setProfileData(data.user);
+        if (data.user.profilePic) {
+          setProfileImage(`data:image/jpeg;base64,${data.user.profilePic}`);
         }
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
       });
   }, []);
 
@@ -52,7 +28,6 @@ const Profile = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     if (name.startsWith("emergencyContact.")) {
       const field = name.split(".")[1];
       setProfileData((prevData) => ({
@@ -70,47 +45,29 @@ const Profile = () => {
     }
   };
 
-  const handleSaveClick = () => {
-    setIsEditing(false);
-
-    // Update user data via the API
-    axios
-      .put("https://csuite-production.up.railway.app/api/user", profileData)
-      .then((response) => {
-        console.log("User data updated successfully:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error updating user data:", error);
-      });
-  };
-
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      setSelectedFile(file);
       const reader = new FileReader();
       reader.onload = (e) => setProfileImage(e.target.result);
-      reader.readAsDataURL(e.target.files[0]);
-
-      // Upload the new profile image to the server and update the profileData state
-      const formData = new FormData();
-      formData.append("profilePic", e.target.files[0]);
-
-      axios
-        .post("https://csuite-production.up.railway.app/api/user/profile-pic", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((response) => {
-          console.log("Profile image updated successfully:", response.data);
-          setProfileData((prevData) => ({
-            ...prevData,
-            profilePic: response.data.profilePic, // Assuming the API returns the updated profile image URL
-          }));
-        })
-        .catch((error) => {
-          console.error("Error updating profile image:", error);
-        });
+      reader.readAsDataURL(file);
     }
+  };
+
+  const handleSaveClick = async () => {
+    setIsEditing(false);
+    const formData = new FormData();
+    for (const key in profileData) {
+      formData.append(key, profileData[key]);
+    }
+    if (selectedFile) {
+      formData.append("profilePic", selectedFile);
+    }
+    await fetch(`https://csuite-production.up.railway.app/api/user/${profileData._id}`, {
+      method: "PUT",
+      body: formData,
+    });
   };
 
   return (
@@ -170,62 +127,6 @@ const Profile = () => {
             />
           </div>
           <div className="profileDetails">
-            <label>ID Card</label>
-            <input
-              type="text"
-              name="idCard"
-              value={profileData.idCard}
-              onChange={handleChange}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="profileDetails">
-            <label>Address</label>
-            <textarea
-              type="text"
-              name="address"
-              value={profileData.address}
-              onChange={handleChange}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="profileDetails">
-            <label>Test Score</label>
-            <input
-              type="number"
-              name="testScore"
-              value={profileData.testScore}
-              disabled
-            />
-          </div>
-          <div className="profileSeperator"></div>
-          <h5>Contact Details</h5>
-          <div className="profileDetails profileSPLBox">
-            <img src={phoneSVG} alt="phoneNumberSVG" />
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={profileData.email}
-              onChange={handleChange}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="profileDetails profileSPLBox">
-            <img src={mailSVG} alt="mailSVG" />
-            <label>Phone Number</label>
-            <input
-              type="number"
-              name="phone"
-              value={profileData.phone}
-              onChange={handleChange}
-              disabled={!isEditing}
-            />
-          </div>
-        </div>
-        <div className="profileSection">
-          <h5>Professional Details</h5>
-          <div className="profileDetails">
             <label>Company Name</label>
             <input
               type="text"
@@ -236,42 +137,34 @@ const Profile = () => {
             />
           </div>
           <div className="profileDetails">
-            <label>Designation</label>
+            <label>Phone Number</label>
             <input
               type="text"
-              name="designation"
-              value={profileData.designation}
+              name="phoneNumber"
+              value={profileData.phoneNumber}
               onChange={handleChange}
               disabled={!isEditing}
             />
           </div>
           <div className="profileDetails">
-            <label>LinkedIn</label>
+            <label>Email</label>
             <input
-              type="url"
-              name="linkedIn"
-              value={profileData.linkedIn}
+              type="text"
+              name="email"
+              value={profileData.email}
               onChange={handleChange}
               disabled={!isEditing}
             />
           </div>
-          <div className="profileDetails">
-            <label>Bio</label>
-            <textarea
-              name="bio"
-              value={profileData.bio}
-              onChange={handleChange}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="profileSeperator"></div>
+        </div>
+        <div className="profileSection">
           <h5>Emergency Contact</h5>
           <div className="profileDetails">
-            <label>Full Name</label>
+            <label>Name</label>
             <input
               type="text"
               name="emergencyContact.name"
-              value={profileData.emergencyContact.name}
+              value={profileData.emergencyContact?.name}
               onChange={handleChange}
               disabled={!isEditing}
             />
@@ -281,7 +174,7 @@ const Profile = () => {
             <input
               type="text"
               name="emergencyContact.relationship"
-              value={profileData.emergencyContact.relationship}
+              value={profileData.emergencyContact?.relationship}
               onChange={handleChange}
               disabled={!isEditing}
             />
@@ -289,18 +182,9 @@ const Profile = () => {
           <div className="profileDetails">
             <label>Phone Number</label>
             <input
-              type="number"
-              name="emergencyContact.phone"
-              value={profileData.emergencyContact.phone}
-              onChange={handleChange}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="profileDetails">
-            <label>Address</label>
-            <textarea
-              name="emergencyContact.address"
-              value={profileData.emergencyContact.address}
+              type="text"
+              name="emergencyContact.phoneNumber"
+              value={profileData.emergencyContact?.phoneNumber}
               onChange={handleChange}
               disabled={!isEditing}
             />
